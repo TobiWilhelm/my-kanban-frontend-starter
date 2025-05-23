@@ -51,7 +51,7 @@ function KanbanBoard() {
     <div>
         <div className="container mx-auto p-4">
           <div className="flex justify-between items-center mb-4"> {/* Flex container for title and button */}
-            <h1 className="text-2xl font-bold">Kanban Board</h1>
+            <h1 className="text-2xl font-bold">Douby's Board</h1>
             <KanbanSheet fetchItems={fetchItems} open={showNewItemSheet} onOpenChange={setShowNewItemSheet} />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
