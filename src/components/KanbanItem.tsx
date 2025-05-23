@@ -7,7 +7,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { toast } from "sonner";
 import KanbanItemPriority from './KanbanItemPriority';
 import type { Item } from '../data/types';
-import { Weight } from 'lucide-react';
 
 
 interface ItemData {
