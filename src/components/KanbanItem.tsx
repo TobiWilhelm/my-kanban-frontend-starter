@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { toast } from "sonner";
 import KanbanItemPriority from './KanbanItemPriority';
 import type { Item } from '../data/types';
+import { Weight } from 'lucide-react';
 
 
 interface ItemData {
@@ -145,7 +146,7 @@ function KanbanItem({ item, onSave, onCancel }: KanbanItemProps) {
     <div className="grid gap-4 py-4 px-4">
       <div className="grid gap-2">
         <Label htmlFor="title">Title</Label>
-        <Input id="title" value={itemData.title} onChange={handleInputChange} />
+        <Input className='border-3 border-dotted border-red-500 p-1 rounded' id="title" value={itemData.title} onChange={handleInputChange} />
       </div>
       <div className="grid gap-2">
         <Label htmlFor="description">Description</Label>

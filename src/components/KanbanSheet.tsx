@@ -34,7 +34,7 @@ function KanbanSheet({ item, fetchItems, open, onOpenChange }: KanbanSheetProps)
       {/* Only show trigger button if not in edit mode (item prop is not provided) */}
       {!item && (
         <SheetTrigger asChild>
-          <Button>Add New Item</Button>
+          <Button>Add New Item NOW!</Button>
         </SheetTrigger>
       )}
       <SheetContent>
