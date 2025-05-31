@@ -135,9 +135,9 @@ function KanbanItem({ item, onSave, onCancel }: KanbanItemProps) {
       toast.success(`Item ${item ? 'updated' : 'created'} successfully!`);
       onSave(); // Notify parent component to refresh/close form
 
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error saving item:', error);
-      toast.error(`Failed to save item: ${error.message}`);
+      toast.error(`Failed to save item: ${(error as Error).message}`);
     }
   };
 
