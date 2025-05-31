@@ -9,7 +9,7 @@ function KanbanBoard() {
   const [items, setItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState(true);
   const [showNewItemSheet, setShowNewItemSheet] = useState(false);
-  const [error] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const fetchItems = async () => {
     try {
@@ -19,9 +19,8 @@ function KanbanBoard() {
       }
       const data: Item[] = await response.json();
       setItems(data);
-    } catch (error: unknown) {
-      console.error('Error saving item:', error);
-      toast.error(`Failed to save item: ${(error as Error).message}`);
+    } catch (err: unknown) {
+      setError((err as Error).message);
     } finally {
       setLoading(false);
       toast("The items have been loaded successfully");
