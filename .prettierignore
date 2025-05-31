@@ -1,0 +1,8 @@
+# Ignore artifacts
+dist
+
+# Ignore node_modules
+node_modules
+
+# Ignore Shadcn/ui components
+src/components/ui
