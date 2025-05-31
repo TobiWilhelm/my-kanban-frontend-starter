@@ -9,6 +9,7 @@ function KanbanBoard() {
   const [items, setItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState(true);
   const [showNewItemSheet, setShowNewItemSheet] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [error, setError] = useState<string | null>(null);
 
   const fetchItems = async () => {
@@ -19,8 +20,9 @@ function KanbanBoard() {
       }
       const data: Item[] = await response.json();
       setItems(data);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (error: unknown) {
+      console.error('Error saving item:', error);
+      toast.error(`Failed to save item: ${(error as Error).message}`);
     } finally {
       setLoading(false);
       toast("The items have been loaded successfully");
@@ -123,9 +125,9 @@ function KanbanBoard() {
       toast.success(`Item ${itemId} moved to ${newState}`);
       fetchItems(); // Reload items to ensure consistency
 
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error updating item state:', error);
-      toast.error(`Failed to move item ${itemId}: ${error.message}`);
+      toast.error(`Failed to save item: ${(error as Error).message}`);
       // Revert state on error
       setItems(items.map(item =>
         item.id === parseInt(itemId, 10) ? { ...item, state: originalState } : item
